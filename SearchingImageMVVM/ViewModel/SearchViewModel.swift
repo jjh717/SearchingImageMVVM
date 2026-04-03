@@ -1,82 +1,44 @@
-//
-//  SearchViewModel.swift
-//  SearchingImageMVVM
-//
-//  Created by Jang Dong Min on 2020/09/07.
-//  Copyright © 2020 jdm. All rights reserved.
-//
-
 import Foundation
-import RxSwift
-import RxCocoa
-import SwiftyJSON
 
-class SearchViewModel: ViewModelType {
-    var disposeBag = DisposeBag()
-    var input: Input
-    var output: Output? = nil
-    
-    struct Input {
-        let loadMore: AnyObserver<Void>
-        let dataLoad: AnyObserver<Void>
+@MainActor
+final class SearchViewModel: ObservableObject {
+
+    @Published private(set) var photos: [UnsplashPhoto] = []
+    @Published private(set) var isLoading = false
+
+    private var currentPage = 1
+    private var canLoadMore = true
+
+    func loadInitial() async {
+        currentPage = 1
+        canLoadMore = true
+        photos = []
+        await fetchPhotos()
     }
 
-    struct Output {
-        let searchResult: Driver<[ImageInfo]>
-        let isLoading: Driver<Bool>
-        let isPageCount: Driver<Int>
+    func loadMoreIfNeeded(currentItem: UnsplashPhoto) async {
+        guard let lastItem = photos.last,
+              lastItem.id == currentItem.id,
+              !isLoading,
+              canLoadMore else { return }
+
+        await fetchPhotos()
     }
-    
-    private let dataLoadSubject = PublishSubject<Void>()
-    private let loadMoreTriggerSubject = PublishSubject<Void>()
-    private let isLoadingRelay = BehaviorRelay<Bool>(value: false)
-    private let pageRelay = BehaviorRelay<Int>(value: 0)
-    
-    private let totalImageInfoRelay = BehaviorRelay<[ImageInfo]>(value: [])
-  
-    init() {
-        self.input = Input(loadMore: loadMoreTriggerSubject.asObserver(), dataLoad: dataLoadSubject.asObserver())
-         
-        dataLoadSubject.subscribe(onNext: { _ in
-            self.pageRelay.accept(0)
-            self.searchImageBy(page: 0)
-        }).disposed(by: disposeBag)
-         
-        loadMoreTriggerSubject.subscribe { _ in
-            if !self.isLoadingRelay.value {
-                self.pageRelay.accept(self.pageRelay.value + 1)
-                self.searchImageBy(page: self.pageRelay.value)
+
+    private func fetchPhotos() async {
+        isLoading = true
+        defer { isLoading = false }
+
+        do {
+            let newPhotos = try await APIClient.fetchPhotos(page: currentPage)
+            if newPhotos.isEmpty {
+                canLoadMore = false
+            } else {
+                photos.append(contentsOf: newPhotos)
+                currentPage += 1
             }
-        }.disposed(by: disposeBag)
-         
-        self.output = Output(searchResult: totalImageInfoRelay.asDriver(), isLoading: isLoadingRelay.asDriver(), isPageCount: pageRelay.asDriver())
-    }
-      
-    func searchImageBy(page: Int) {
-        self.isLoadingRelay.accept(true)
-        APIClient.searchImage(page: page) { result in
-            switch result {
-            case .success(let info):
-                self.totalImageInfoRelay.accept(self.totalImageInfoRelay.value + self.parse(json: info))
-                break
-            case .failure( _):
-                break
-            }
-            
-            self.isLoadingRelay.accept(false)
+        } catch {
+            print("Fetch error: \(error.localizedDescription)")
         }
-    }
-    
-    func parse(json: Any) -> [ImageInfo] {
-        let value = JSON(json)
-        var result = [ImageInfo]()
-        for i in 0..<value.count {
-            let width = value[i]["width"].intValue
-            let height = value[i]["height"].intValue
-            let thumb = value[i]["urls"]["thumb"]
-            result.append(ImageInfo(thumb: thumb.stringValue, width: width, height: height))
-        }
-        
-        return result
     }
 }
