@@ -4,21 +4,14 @@ struct ImageGridView: View {
 
     @StateObject private var viewModel = SearchViewModel()
 
-    private let columns = [
-        GridItem(.flexible(), spacing: 8),
-        GridItem(.flexible(), spacing: 8)
-    ]
-
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVGrid(columns: columns, spacing: 8) {
-                    ForEach(viewModel.photos) { photo in
-                        ImageCardView(photo: photo)
-                            .task {
-                                await viewModel.loadMoreIfNeeded(currentItem: photo)
-                            }
-                    }
+                PinterestGrid(viewModel.photos, columns: 2, spacing: 8) { photo in
+                    ImageCardView(photo: photo)
+                        .task {
+                            await viewModel.loadMoreIfNeeded(currentItem: photo)
+                        }
                 }
                 .padding(8)
 

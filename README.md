@@ -2,22 +2,34 @@
 
 Unsplash API를 활용한 이미지 검색 앱입니다. Pinterest 스타일의 그리드 레이아웃으로 이미지를 표시하며, 무한 스크롤을 지원합니다.
 
+**SwiftUI**와 **UIKit** 두 가지 UI 구현을 포함하고 있습니다.
+
 ## 기술 스택
 
-- **UI**: SwiftUI (AsyncImage, LazyVGrid, NavigationStack)
-- **Architecture**: MVVM + ObservableObject
+- **SwiftUI**: AsyncImage, PinterestGrid, NavigationStack, @StateObject
+- **UIKit**: Programmatic UI, DiffableDataSource, Combine, PinterestLayout
+- **Architecture**: MVVM
 - **Networking**: URLSession + async/await + Codable
 - **iOS 16.0+**, 외부 의존성 없음
+
+## UI 전환
+
+`SearchingImageApp.swift`에서 `useSwiftUI` 플래그로 전환:
+
+```swift
+private let useSwiftUI = true   // SwiftUI 버전
+private let useSwiftUI = false  // UIKit 버전
+```
 
 ## Before → After
 
 | Before (2020) | After |
 |---|---|
-| UIKit + Storyboard + IBOutlet | SwiftUI |
-| RxSwift / RxCocoa / RxDataSources | async/await + @Published |
+| UIKit + Storyboard + IBOutlet | SwiftUI + UIKit (Programmatic) |
+| RxSwift / RxCocoa / RxDataSources | async/await + @Published + Combine |
 | Alamofire | URLSession (native) |
 | SwiftyJSON | Codable (native) |
-| SDWebImage | AsyncImage (native) |
+| SDWebImage | AsyncImage / URLSession (native) |
 | CocoaPods (6개 의존성) | 외부 의존성 0개 |
 | iOS 10.0 | iOS 16.0 |
 
@@ -26,21 +38,26 @@ Unsplash API를 활용한 이미지 검색 앱입니다. Pinterest 스타일의 
 ```
 SearchingImageMVVM/
 ├── App/
-│   ├── SearchingImageApp.swift    # SwiftUI App 진입점
+│   ├── SearchingImageApp.swift          # @main (SwiftUI/UIKit 전환)
 │   ├── Info.plist
 │   ├── Assets.xcassets/
 │   └── Base.lproj/LaunchScreen.storyboard
 ├── Model/
-│   └── ImageInfo.swift            # UnsplashPhoto (Codable)
+│   └── ImageInfo.swift                  # UnsplashPhoto (Codable, Hashable)
 ├── Networking/
-│   ├── APIClient.swift            # async/await URLSession
-│   └── Constants.swift            # API 설정
+│   ├── APIClient.swift                  # async/await URLSession
+│   └── Constants.swift
 ├── ViewModel/
-│   └── SearchViewModel.swift      # @MainActor ObservableObject
+│   ├── SearchViewModel.swift            # SwiftUI용 (@MainActor ObservableObject)
+│   └── SearchViewModelUIKit.swift       # UIKit용 (Combine @Published)
 └── View/
-    ├── ImageGridView.swift        # 메인 그리드 화면
-    ├── ImageCardView.swift        # 개별 이미지 카드
-    └── PinterestLayout.swift      # Pinterest 스타일 그리드
+    ├── ImageGridView.swift              # [SwiftUI] 메인 그리드
+    ├── ImageCardView.swift              # [SwiftUI] AsyncImage 카드
+    ├── PinterestLayout.swift            # [SwiftUI] Pinterest 그리드
+    └── UIKit/
+        ├── SearchViewController.swift   # [UIKit] DiffableDataSource + Combine
+        ├── ImageCell.swift              # [UIKit] Programmatic 셀
+        └── PinterestCollectionViewLayout.swift  # [UIKit] 커스텀 레이아웃
 ```
 
 ## 스크린샷
