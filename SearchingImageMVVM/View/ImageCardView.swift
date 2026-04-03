@@ -10,10 +10,11 @@ struct ImageCardView: View {
             case .success(let image):
                 image
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
 
             case .failure:
                 Color.gray.opacity(0.3)
+                    .aspectRatio(1 / photo.aspectRatio, contentMode: .fit)
                     .overlay {
                         Image(systemName: "photo")
                             .foregroundStyle(.secondary)
@@ -21,13 +22,13 @@ struct ImageCardView: View {
 
             case .empty:
                 Color.gray.opacity(0.1)
+                    .aspectRatio(1 / photo.aspectRatio, contentMode: .fit)
                     .overlay { ProgressView() }
 
             @unknown default:
                 Color.clear
             }
         }
-        .aspectRatio(1 / photo.aspectRatio, contentMode: .fit)
         .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }
