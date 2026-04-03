@@ -7,47 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58F28F0E2505D310004EC5FB /* SearchingImageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F28F0D2505D310004EC5FB /* SearchingImageApp.swift */; };
-		58F28F122505D310004EC5FB /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F28F112505D310004EC5FB /* ImageGridView.swift */; };
-		58F28F172505D315004EC5FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58F28F162505D315004EC5FB /* Assets.xcassets */; };
-		58F28F1A2505D315004EC5FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F28F182505D315004EC5FB /* LaunchScreen.storyboard */; };
+		/* Shared - SwiftUI target */
 		58F28F2D2505D367004EC5FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F28F242505D367004EC5FB /* Constants.swift */; };
 		58F28F2F2505D367004EC5FB /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F28F272505D367004EC5FB /* APIClient.swift */; };
-		58F28F322505D367004EC5FB /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F28F2C2505D367004EC5FB /* SearchViewModel.swift */; };
 		58F28F3D2506133E004EC5FB /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F28F3C2506133E004EC5FB /* ImageInfo.swift */; };
+		58F28F172505D315004EC5FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58F28F162505D315004EC5FB /* Assets.xcassets */; };
+		58F28F1A2505D315004EC5FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F28F182505D315004EC5FB /* LaunchScreen.storyboard */; };
+		/* SwiftUI only */
+		58F28F0E2505D310004EC5FB /* SearchingImageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F28F0D2505D310004EC5FB /* SearchingImageApp.swift */; };
+		58F28F122505D310004EC5FB /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F28F112505D310004EC5FB /* ImageGridView.swift */; };
 		58F28F3F250741DF004EC5FB /* ImageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F28F3E250741DF004EC5FB /* ImageCardView.swift */; };
-		070E7B4B250CBEEB002FB753 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070E7B4A250CBEEB002FB753 /* PinterestLayout.swift */; };
-		AA00000100000001000000A1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000100000001000000A0 /* SearchViewController.swift */; };
-		AA00000100000002000000A1 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000100000002000000A0 /* ImageCell.swift */; };
-		AA00000100000003000000A1 /* PinterestCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000100000003000000A0 /* PinterestCollectionViewLayout.swift */; };
-		AA00000100000004000000A1 /* SearchViewModelUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000100000004000000A0 /* SearchViewModelUIKit.swift */; };
+		070E7B4B250CBEEB002FB753 /* PinterestGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070E7B4A250CBEEB002FB753 /* PinterestGrid.swift */; };
+		58F28F322505D367004EC5FB /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F28F2C2505D367004EC5FB /* SearchViewModel.swift */; };
+
+		/* Shared - UIKit target */
+		BB000001000000010000000A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F28F242505D367004EC5FB /* Constants.swift */; };
+		BB000001000000020000000A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F28F272505D367004EC5FB /* APIClient.swift */; };
+		BB000001000000030000000A /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F28F3C2506133E004EC5FB /* ImageInfo.swift */; };
+		BB000001000000040000000A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58F28F162505D315004EC5FB /* Assets.xcassets */; };
+		BB000001000000050000000A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F28F182505D315004EC5FB /* LaunchScreen.storyboard */; };
+		/* UIKit only */
+		BB000001000000060000000A /* AppDelegateUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000001000000060000000F /* AppDelegateUIKit.swift */; };
+		BB000001000000070000000A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000001000000070000000F /* SearchViewController.swift */; };
+		BB000001000000080000000A /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000001000000080000000F /* ImageCell.swift */; };
+		BB000001000000090000000A /* PinterestCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000001000000090000000F /* PinterestCollectionViewLayout.swift */; };
+		BB0000010000000A0000000A /* SearchViewModelUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000010000000A0000000F /* SearchViewModelUIKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		070E7B4A250CBEEB002FB753 /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
-		58F28F0A2505D310004EC5FB /* SearchingImageMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchingImageMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		58F28F0D2505D310004EC5FB /* SearchingImageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingImageApp.swift; sourceTree = "<group>"; };
-		58F28F112505D310004EC5FB /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
+		/* Shared */
+		58F28F242505D367004EC5FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		58F28F272505D367004EC5FB /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		58F28F3C2506133E004EC5FB /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
 		58F28F162505D315004EC5FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58F28F192505D315004EC5FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58F28F1B2505D315004EC5FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		58F28F242505D367004EC5FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		58F28F272505D367004EC5FB /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		58F28F2C2505D367004EC5FB /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		58F28F3C2506133E004EC5FB /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
+		/* SwiftUI */
+		58F28F0A2505D310004EC5FB /* SearchingImageSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchingImageSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58F28F0D2505D310004EC5FB /* SearchingImageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingImageApp.swift; sourceTree = "<group>"; };
+		58F28F112505D310004EC5FB /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
 		58F28F3E250741DF004EC5FB /* ImageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCardView.swift; sourceTree = "<group>"; };
-		AA00000100000001000000A0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		AA00000100000002000000A0 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
-		AA00000100000003000000A0 /* PinterestCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestCollectionViewLayout.swift; sourceTree = "<group>"; };
-		AA00000100000004000000A0 /* SearchViewModelUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelUIKit.swift; sourceTree = "<group>"; };
+		070E7B4A250CBEEB002FB753 /* PinterestGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestGrid.swift; sourceTree = "<group>"; };
+		58F28F2C2505D367004EC5FB /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		/* UIKit */
+		BB00000100000000000000FF /* SearchingImageUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchingImageUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB000001000000060000000F /* AppDelegateUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateUIKit.swift; sourceTree = "<group>"; };
+		BB000001000000070000000F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BB000001000000080000000F /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		BB000001000000090000000F /* PinterestCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestCollectionViewLayout.swift; sourceTree = "<group>"; };
+		BB0000010000000A0000000F /* SearchViewModelUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelUIKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		58F28F072505D310004EC5FB /* Frameworks */ = {
+		58F28F072505D310004EC5FB /* Frameworks (SwiftUI) */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
-			files = (
-			);
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB00000100000000000000F1 /* Frameworks (UIKit) */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -64,7 +85,8 @@
 		58F28F0B2505D310004EC5FB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				58F28F0A2505D310004EC5FB /* SearchingImageMVVM.app */,
+				58F28F0A2505D310004EC5FB /* SearchingImageSwiftUI.app */,
+				BB00000100000000000000FF /* SearchingImageUIKit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				58F28F0D2505D310004EC5FB /* SearchingImageApp.swift */,
+				BB000001000000060000000F /* AppDelegateUIKit.swift */,
 				58F28F1B2505D315004EC5FB /* Info.plist */,
 				58F28F162505D315004EC5FB /* Assets.xcassets */,
 				58F28F182505D315004EC5FB /* LaunchScreen.storyboard */,
@@ -105,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				58F28F2C2505D367004EC5FB /* SearchViewModel.swift */,
-				AA00000100000004000000A0 /* SearchViewModelUIKit.swift */,
+				BB0000010000000A0000000F /* SearchViewModelUIKit.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -113,20 +136,28 @@
 		58F28F342506022C004EC5FB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				58F28F112505D310004EC5FB /* ImageGridView.swift */,
-				58F28F3E250741DF004EC5FB /* ImageCardView.swift */,
-				070E7B4A250CBEEB002FB753 /* PinterestLayout.swift */,
-				AA00000100000005000000A0 /* UIKit */,
+				BB00000100000000000000E1 /* SwiftUI */,
+				BB00000100000000000000E2 /* UIKit */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		AA00000100000005000000A0 /* UIKit */ = {
+		BB00000100000000000000E1 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				AA00000100000001000000A0 /* SearchViewController.swift */,
-				AA00000100000002000000A0 /* ImageCell.swift */,
-				AA00000100000003000000A0 /* PinterestCollectionViewLayout.swift */,
+				58F28F112505D310004EC5FB /* ImageGridView.swift */,
+				58F28F3E250741DF004EC5FB /* ImageCardView.swift */,
+				070E7B4A250CBEEB002FB753 /* PinterestGrid.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		BB00000100000000000000E2 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				BB000001000000070000000F /* SearchViewController.swift */,
+				BB000001000000080000000F /* ImageCell.swift */,
+				BB000001000000090000000F /* PinterestCollectionViewLayout.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -142,21 +173,34 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58F28F092505D310004EC5FB /* SearchingImageMVVM */ = {
+		58F28F092505D310004EC5FB /* SearchingImageSwiftUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58F28F1E2505D315004EC5FB /* Build configuration list for PBXNativeTarget "SearchingImageMVVM" */;
+			buildConfigurationList = 58F28F1E2505D315004EC5FB /* Build configuration list for PBXNativeTarget "SearchingImageSwiftUI" */;
 			buildPhases = (
 				58F28F062505D310004EC5FB /* Sources */,
-				58F28F072505D310004EC5FB /* Frameworks */,
+				58F28F072505D310004EC5FB /* Frameworks (SwiftUI) */,
 				58F28F082505D310004EC5FB /* Resources */,
 			);
-			buildRules = (
+			buildRules = ();
+			dependencies = ();
+			name = SearchingImageSwiftUI;
+			productName = SearchingImageSwiftUI;
+			productReference = 58F28F0A2505D310004EC5FB /* SearchingImageSwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BB00000100000000000000FE /* SearchingImageUIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB00000100000000000000FC /* Build configuration list for PBXNativeTarget "SearchingImageUIKit" */;
+			buildPhases = (
+				BB00000100000000000000F0 /* Sources */,
+				BB00000100000000000000F1 /* Frameworks (UIKit) */,
+				BB00000100000000000000F2 /* Resources */,
 			);
-			dependencies = (
-			);
-			name = SearchingImageMVVM;
-			productName = SearchingImageMVVM;
-			productReference = 58F28F0A2505D310004EC5FB /* SearchingImageMVVM.app */;
+			buildRules = ();
+			dependencies = ();
+			name = SearchingImageUIKit;
+			productName = SearchingImageUIKit;
+			productReference = BB00000100000000000000FF /* SearchingImageUIKit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -169,6 +213,9 @@
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					58F28F092505D310004EC5FB = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					BB00000100000000000000FE = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
@@ -186,7 +233,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				58F28F092505D310004EC5FB /* SearchingImageMVVM */,
+				58F28F092505D310004EC5FB /* SearchingImageSwiftUI */,
+				BB00000100000000000000FE /* SearchingImageUIKit */,
 			);
 		};
 /* End PBXProject section */
@@ -201,6 +249,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BB00000100000000000000F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB000001000000050000000A /* LaunchScreen.storyboard in Resources */,
+				BB000001000000040000000A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -211,15 +268,26 @@
 				58F28F0E2505D310004EC5FB /* SearchingImageApp.swift in Sources */,
 				58F28F122505D310004EC5FB /* ImageGridView.swift in Sources */,
 				58F28F3F250741DF004EC5FB /* ImageCardView.swift in Sources */,
-				070E7B4B250CBEEB002FB753 /* PinterestLayout.swift in Sources */,
+				070E7B4B250CBEEB002FB753 /* PinterestGrid.swift in Sources */,
 				58F28F322505D367004EC5FB /* SearchViewModel.swift in Sources */,
 				58F28F2F2505D367004EC5FB /* APIClient.swift in Sources */,
 				58F28F2D2505D367004EC5FB /* Constants.swift in Sources */,
 				58F28F3D2506133E004EC5FB /* ImageInfo.swift in Sources */,
-				AA00000100000001000000A1 /* SearchViewController.swift in Sources */,
-				AA00000100000002000000A1 /* ImageCell.swift in Sources */,
-				AA00000100000003000000A1 /* PinterestCollectionViewLayout.swift in Sources */,
-				AA00000100000004000000A1 /* SearchViewModelUIKit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB00000100000000000000F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB000001000000060000000A /* AppDelegateUIKit.swift in Sources */,
+				BB000001000000070000000A /* SearchViewController.swift in Sources */,
+				BB000001000000080000000A /* ImageCell.swift in Sources */,
+				BB000001000000090000000A /* PinterestCollectionViewLayout.swift in Sources */,
+				BB0000010000000A0000000A /* SearchViewModelUIKit.swift in Sources */,
+				BB000001000000010000000A /* Constants.swift in Sources */,
+				BB000001000000020000000A /* APIClient.swift in Sources */,
+				BB000001000000030000000A /* ImageInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +305,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		/* Project-level */
 		58F28F1C2505D315004EC5FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -355,6 +424,7 @@
 			};
 			name = Release;
 		};
+		/* SwiftUI target */
 		58F28F1F2505D315004EC5FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -366,7 +436,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jdm.SearchingImageMVVM;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jdm.SearchingImageSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -385,7 +455,46 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jdm.SearchingImageMVVM;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jdm.SearchingImageSwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		/* UIKit target */
+		BB00000100000000000000FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88Z4VX6L8N;
+				INFOPLIST_FILE = SearchingImageMVVM/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jdm.SearchingImageUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BB00000100000000000000FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88Z4VX6L8N;
+				INFOPLIST_FILE = SearchingImageMVVM/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jdm.SearchingImageUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -405,11 +514,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58F28F1E2505D315004EC5FB /* Build configuration list for PBXNativeTarget "SearchingImageMVVM" */ = {
+		58F28F1E2505D315004EC5FB /* Build configuration list for PBXNativeTarget "SearchingImageSwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58F28F1F2505D315004EC5FB /* Debug */,
 				58F28F202505D315004EC5FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB00000100000000000000FC /* Build configuration list for PBXNativeTarget "SearchingImageUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB00000100000000000000FA /* Debug */,
+				BB00000100000000000000FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

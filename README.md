@@ -12,14 +12,12 @@ Unsplash API를 활용한 이미지 검색 앱입니다. Pinterest 스타일의 
 - **Networking**: URLSession + async/await + Codable
 - **iOS 16.0+**, 외부 의존성 없음
 
-## UI 전환
+## 실행 방법
 
-`SearchingImageApp.swift`에서 `useSwiftUI` 플래그로 전환:
+Xcode에서 Scheme을 선택하여 각 버전을 실행할 수 있습니다:
 
-```swift
-private let useSwiftUI = true   // SwiftUI 버전
-private let useSwiftUI = false  // UIKit 버전
-```
+- **SearchingImageSwiftUI** - SwiftUI 버전
+- **SearchingImageUIKit** - UIKit 버전
 
 ## Before → After
 
