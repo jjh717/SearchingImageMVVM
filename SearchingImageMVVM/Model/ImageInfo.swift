@@ -1,16 +1,18 @@
-//
-//  ImageInfo.swift
-//  SearchingImageMVVM
-//
-//  Created by Jang Dong Min on 2020/09/07.
-//  Copyright © 2020 jdm. All rights reserved.
-//
-
 import Foundation
 
-struct ImageInfo {
-    let thumb: String
+struct UnsplashPhoto: Decodable, Identifiable {
+    let id: String
     let width: Int
     let height: Int
-}
+    let urls: URLs
 
+    struct URLs: Decodable {
+        let thumb: String
+        let small: String
+    }
+
+    var aspectRatio: CGFloat {
+        guard width > 0 else { return 1 }
+        return CGFloat(height) / CGFloat(width)
+    }
+}
